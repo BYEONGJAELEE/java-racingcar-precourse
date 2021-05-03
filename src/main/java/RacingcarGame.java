@@ -16,10 +16,14 @@ public class RacingcarGame {
     }
 
     public void startGame() {
-        readCarNames();
+        int carSize = readCarNames();
+        if(carSize == 0) {
+            System.out.println("자동차 이름은 최대 5자까지 가능합니다. 5자까지 가능한 이름을 최소 1개 이상 넣어주세요.");
+        }
+        readGameMatchNumber();
     }
 
-    public void readCarNames(){
+    public int readCarNames(){
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
 
         BufferedReader bufferedReader;
@@ -29,22 +33,26 @@ public class RacingcarGame {
             stringTokenizer = new StringTokenizer(bufferedReader.readLine(), carNameDeleimeter);
 
             while(stringTokenizer.hasMoreTokens()) {
-                String car = stringTokenizer.nextToken().trim();
-
-                if(validateCarName(car)) {
-                    System.out.println(car);
-                    Car myCar = new Car(car);
-                    cars.add(myCar);
-                }
+                addCar(stringTokenizer.nextToken().trim());
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return cars.size();
     }
 
-    public boolean validateCarName(String car) {
-        return car.length() <= carNameLength;
+    public void addCar(String car) {
+        if(car.length() <= carNameLength) {
+            System.out.println(car);
+            Car myCar = new Car(car);
+            cars.add(myCar);
+        }
+    }
+
+    private void readGameMatchNumber() {
+
     }
 
     public Set<Car> getCars() {
