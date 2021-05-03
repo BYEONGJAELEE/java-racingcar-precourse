@@ -28,4 +28,16 @@ public class MainTest {
         Set<Car> myCars = racingcarGame.getCars();
         assertThat(myCars.size()).isEqualTo(7);
     }
+
+    @Test
+    @DisplayName("자동차 경주 게임 횟수 검증")
+    void TEST3() {
+        String userMatchNumber = "5";
+        InputStream in = new ByteArrayInputStream(userMatchNumber.getBytes());
+        System.setIn(in);
+
+        RacingcarGame racingcarGame = new RacingcarGame();
+        racingcarGame.readGameMatchNumber();
+        assertThat(racingcarGame.getGameMatchNumber()).isEqualTo(Integer.parseInt(userMatchNumber));
+    }
 }
