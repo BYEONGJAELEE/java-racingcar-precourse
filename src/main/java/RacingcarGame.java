@@ -37,6 +37,7 @@ public class RacingcarGame {
     private void moveCars() {
         for (Car car : cars) {
             car.move();
+            car.showCarDistance();
         }
         System.out.println();
     }

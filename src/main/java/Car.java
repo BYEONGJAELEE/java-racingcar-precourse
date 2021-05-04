@@ -36,4 +36,8 @@ public class Car {
         }
     }
 
+    public void showCarDistance() {
+        String distanceDash = ProgramUtils.repeat('-', getDistance());
+        System.out.println(getName() + " : " + distanceDash);
+    }
 }
