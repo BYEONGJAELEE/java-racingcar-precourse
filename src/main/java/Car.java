@@ -29,11 +29,12 @@ public class Car {
         return random.nextInt(10);
     }
 
-    public void move() {
+    public int move() {
         int getNum = getRandomNum();
         if (getNum >= 4) {
             setDistance(getDistance() + 1);
         }
+        return getDistance();
     }
 
     public void showCarDistance() {
