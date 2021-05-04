@@ -21,6 +21,24 @@ public class RacingcarGame {
         }
 
         readGameMatchNumber();
+        startCars();
+    }
+
+    private void startCars() {
+        System.out.println("\n실행 결과");
+        int matchNum = gameMatchNumber;
+        while(matchNum-- > 0) {
+            moveCars();
+        }
+
+        // TODO : Show Winnder
+    }
+
+    private void moveCars() {
+        for (Car car : cars) {
+            car.move();
+        }
+        System.out.println();
     }
 
     public int readCarNames(){
