@@ -43,16 +43,16 @@ public class RacingcarGame {
             calcWinnerCar(car);
         }
         StringBuilder result = new StringBuilder();
-        for(Car car : winnderCars) {
+        for (Car car : winnderCars) {
             result.append(car.getName()).append(", ");
         }
-        String resultStr = result.substring(0, result.length()-2);
+        String resultStr = result.substring(0, result.length() - 2);
         resultStr += "가 최종 우승했습니다.";
         return resultStr;
     }
 
     private void calcWinnerCar(Car car) {
-        if(car.getDistance() == longestDistance) {
+        if (car.getDistance() == longestDistance) {
             winnderCars.add(car);
         }
     }
